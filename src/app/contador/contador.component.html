@@ -1,0 +1,24 @@
+<div style="display: flex; flex-direction: column;justify-content: center;align-items: center">
+  <label style="margin: 5px">{{contador}}</label>
+  <div style="display: flex">
+    <button (click)="modifyCounter('incrementar')" color="primary" mat-raised-button style="margin: 2px">Aumentar
+    </button>
+    <button (click)="modifyCounter('decrementar')" color="primary" mat-raised-button style="margin: 2px">Disminuir
+    </button>
+    <button (click)="modifyCounter('resetear')" color="primary" mat-raised-button style="margin: 2px">Resetear</button>
+    <div (click)="vewEvent($event)">Dame click aquí</div>
+    <label [class.hide]="hide">Soy un label bien feo</label>
+    <button (click)="hideText()" color="primary" mat-raised-button style="margin: 2px">Ocultar</button>
+    <form>
+      <input (input)="handleChangeInput($event)" [(ngModel)]="myInput" [ngModelOptions]="{standalone: true}"
+             type="text"/>
+      <input (input)="handleChangeInput($event)" [(ngModel)]="myInput" [disabled]="isDisabled"
+             [ngModelOptions]="{standalone: true}" matInput placeholder="Ex. Pizza"
+             value="Sushi">
+      <input (input)="viewValueNewInput()" [value]="newInput" type="text">
+    </form>
+    <button (click)="isDisabled=!isDisabled" color="primary" mat-raised-button style="margin: 2px">Deshabilitar</button>
+    <input #myInputThird (input)="logValue(myInputThird.value)" type="text">
+    <button (click)="logValue(myInputThird.value)">Log Value</button>
+  </div>
+</div>
