@@ -13,6 +13,18 @@ export class ContadorComponent {
   isDisabled = false
   newInput = 'Valor inicial'
   secondInput = 'secondInput'
+  isShowDifCondicional = true
+  itemsExample: string[] = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
+  color = 'red'
+  formData = {
+    name: '',
+    email: ''
+  };
+
+  submitForm() {
+    // Realizar acciones con los datos del formulario
+    console.log(this.formData);
+  }
 
   modifyCounter(action: 'incrementar' | 'decrementar' | 'resetear') {
     switch (action) {
@@ -48,6 +60,10 @@ export class ContadorComponent {
 
   logValue(value: string) {
     console.log(value)
+  }
+
+  handleColor(event: any) {
+    this.color = event.target.value
   }
 }
 

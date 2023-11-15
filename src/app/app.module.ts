@@ -8,7 +8,7 @@ import {ContadorComponent} from "./contador/contador.component";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatButtonModule} from "@angular/material/button";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
@@ -19,6 +19,8 @@ import {MatInputModule} from "@angular/material/input";
     ContadorComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatSlideToggleModule,
