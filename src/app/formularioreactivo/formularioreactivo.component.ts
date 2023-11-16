@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-formularioreactivo',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./formularioreactivo.component.css']
 })
 export class FormularioreactivoComponent {
-
+  name: FormControl<string | null> = new FormControl('')
+  email: FormControl<string | null> = new FormControl('')
 }
