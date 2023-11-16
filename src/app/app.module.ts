@@ -10,13 +10,15 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatButtonModule} from "@angular/material/button";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
+import { FormularioreactivoComponent } from './formularioreactivo/formularioreactivo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MyComponentComponent,
     HomeComponent,
-    ContadorComponent
+    ContadorComponent,
+    FormularioreactivoComponent
   ],
   imports: [
     FormsModule,
@@ -26,7 +28,7 @@ import {MatInputModule} from "@angular/material/input";
     MatSlideToggleModule,
     MatButtonModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

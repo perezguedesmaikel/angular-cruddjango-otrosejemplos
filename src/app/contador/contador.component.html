@@ -52,7 +52,7 @@
   <!--      </div>-->
 
   <!--  </form>-->
-  <form (ngSubmit)="submitForm()">
+  <form #formContact='ngForm' (ngSubmit)="submitForm()">
     <div style="display: flex; flex-direction: column">
       <div>
         <mat-form-field>
@@ -74,7 +74,7 @@
         </mat-error>
       </mat-form-field>
     </div>
-    <button [disabled]="email.invalid" type="submit">Enviar</button>
+    <button [disabled]="formContact.invalid" type="submit">Enviar</button>
 
   </form>
 </div>
