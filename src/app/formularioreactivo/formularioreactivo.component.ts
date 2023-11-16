@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {FormControl} from "@angular/forms";
+import {FormControl, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-formularioreactivo',
@@ -7,6 +7,6 @@ import {FormControl} from "@angular/forms";
   styleUrls: ['./formularioreactivo.component.css']
 })
 export class FormularioreactivoComponent {
-  name: FormControl<string | null> = new FormControl('')
-  email: FormControl<string | null> = new FormControl('')
+  name: FormControl<string | null> = new FormControl('', Validators.required)
+  email: FormControl<string | null> = new FormControl('', [Validators.required, Validators.email])
 }
