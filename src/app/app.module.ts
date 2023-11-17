@@ -20,6 +20,7 @@ import {RouterModule} from "@angular/router";
 import { HijoComponent } from './hijo/hijo.component';
 import { NietoComponent } from './hijo/nieto/nieto.component';
 import { ListatareasComponent } from './listatareas/listatareas.component';
+import { ListcardComponent } from './listcard/listcard.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ListatareasComponent } from './listatareas/listatareas.component';
     HomeComponent,
     HijoComponent,
     NietoComponent,
-    ListatareasComponent
+    ListatareasComponent,
+    ListcardComponent
   ],
   imports: [
     FormsModule,
