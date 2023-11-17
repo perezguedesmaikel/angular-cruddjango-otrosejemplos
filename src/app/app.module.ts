@@ -19,6 +19,7 @@ import {HomeComponent} from "./home/home.component";
 import {RouterModule} from "@angular/router";
 import { HijoComponent } from './hijo/hijo.component';
 import { NietoComponent } from './hijo/nieto/nieto.component';
+import { ListatareasComponent } from './listatareas/listatareas.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NietoComponent } from './hijo/nieto/nieto.component';
     NavbarComponent,
     HomeComponent,
     HijoComponent,
-    NietoComponent
+    NietoComponent,
+    ListatareasComponent
   ],
   imports: [
     FormsModule,
