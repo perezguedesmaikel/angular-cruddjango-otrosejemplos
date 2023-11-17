@@ -12,6 +12,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {FormularioreactivoComponent} from './formularioreactivo/formularioreactivo.component';
 import {MatCardModule} from "@angular/material/card";
+import {NavbarComponent} from './navbar/navbar.component';
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import {MatCardModule} from "@angular/material/card";
     MyComponentComponent,
     HomeComponent,
     ContadorComponent,
-    FormularioreactivoComponent
+    FormularioreactivoComponent,
+    NavbarComponent
   ],
   imports: [
     FormsModule,
@@ -31,6 +34,7 @@ import {MatCardModule} from "@angular/material/card";
     FormsModule,
     MatInputModule,
     MatCardModule,
+    NgOptimizedImage,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,6 +11,7 @@ export class FormularioreactivoComponent {
   email: FormControl<string | null> = new FormControl('', [Validators.required, Validators.email])
   formUser = new FormGroup([this.email, this.name])
 
+
   handleSubmit() {
     console.log({name: this.name.value, email: this.email.value})
   }
