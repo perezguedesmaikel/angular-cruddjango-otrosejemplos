@@ -1,0 +1,6 @@
+<mat-card *ngFor="let card of tasks">
+  <mat-card-content>{{card}}</mat-card-content>
+</mat-card>
+<div *ngIf="tasks?.length===0">
+  <p>Este contenido se muestra si todavía no hay valores en la lista.</p>
+</div>
