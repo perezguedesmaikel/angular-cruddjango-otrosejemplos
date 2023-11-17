@@ -17,6 +17,8 @@ import {MatMenuModule} from "@angular/material/menu";
 import {routes} from "./app-routing.module";
 import {HomeComponent} from "./home/home.component";
 import {RouterModule} from "@angular/router";
+import { HijoComponent } from './hijo/hijo.component';
+import { NietoComponent } from './hijo/nieto/nieto.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import {RouterModule} from "@angular/router";
     ContadorComponent,
     FormularioreactivoComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    HijoComponent,
+    NietoComponent
   ],
   imports: [
     FormsModule,
