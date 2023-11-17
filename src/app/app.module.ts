@@ -2,7 +2,6 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {MyComponentComponent} from './my-component/my-component.component';
-import {HomeComponent} from './home/home.component';
 import {ContadorComponent} from "./contador/contador.component";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
@@ -15,15 +14,18 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {NgOptimizedImage} from "@angular/common";
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
+import {routes} from "./app-routing.module";
+import {HomeComponent} from "./home/home.component";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
     AppComponent,
     MyComponentComponent,
-    HomeComponent,
     ContadorComponent,
     FormularioreactivoComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     FormsModule,
@@ -37,8 +39,10 @@ import {MatMenuModule} from "@angular/material/menu";
     MatCardModule,
     NgOptimizedImage,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    RouterModule.forRoot(routes),
   ],
+  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })
