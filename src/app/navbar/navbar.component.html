@@ -4,13 +4,22 @@
       <div class="flex items-center">
         <!-- Logo o título del navbar -->
         <div class="flex items-center justify-center">
+          <button [matMenuTriggerFor]="menu" mat-button>
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>Item 1</button>
+            <button mat-menu-item>Item 2</button>
+          </mat-menu>
           <span
             class="font-bold text-white text-2xl transform hover:scale-110 transition-transform duration-300 cursor-pointer">
-            <span class="text-gradient bg-gradient-to-r from-yellow-400 to-red-500 mt-5 rounded-3xl p-2 ">J.M.P.G</span>
+            <span class="text-gradient bg-gradient-to-r from-yellow-400 to-red-500 mt-5 rounded-3xl p-2">J.M.P.G</span>
           </span>
         </div>
         <!-- Otras opciones de navegación -->
-        <div class="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-4">
+        <div class="sm:-my-px sm:ml-6 sm:flex sm:space-x-4">
           <a
             class="inline-flex text-white items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 hover:text-gray-200 hover:border-gray-200 focus:outline-none focus:text-gray-200 focus:border-gray-200 transition duration-150 ease-in-out"
             href="#">Inicio</a>
