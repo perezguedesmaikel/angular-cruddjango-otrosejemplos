@@ -1,11 +1,10 @@
-import {Component, Input} from '@angular/core';
-import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import {Component, Inject, Input} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 import {FormsModule} from "@angular/forms";
 import {CrudService} from "../../services/CrudService";
 import {NgIf} from "@angular/common";
 import {MatIconModule} from "@angular/material/icon";
-import {OtherDialogComponent} from "../other-dialog/other-dialog.component";
 
 
 /**
@@ -20,13 +19,20 @@ import {OtherDialogComponent} from "../other-dialog/other-dialog.component";
 export class DialogContentExample {
 
     @Input() type: 'create' | 'update' = 'create'
+    @Input() item = {}
 
     constructor(public dialog: MatDialog, public crudService: CrudService) {
     }
 
     openDialog() {
         this.crudService.type = this.type
-        const dialogRef = this.dialog.open(DialogComponent);
+        const dialogRef = this.dialog.open(DialogComponent, {
+            data: {
+                item: this.type === 'create' ? {nombre: '', precio: '', descripcion: ''} : this.item,
+                type: this.type
+            },
+
+        });
         dialogRef.afterClosed().subscribe(result => {
             console.log(`Dialog result: ${result}`);
         });
@@ -43,20 +49,35 @@ export class DialogContentExample {
 })
 export class DialogComponent {
     item = {
-        nombre: this.crudService.type === 'create' ? '' : 'Maikel',
-        precio: this.crudService.type === 'create' ? '' : 100,
-        descripcion: this.crudService.type === 'create' ? '' : 'yeah baby!!!'
+        nombre: '', precio: '', descripcion: '', id: 0
     }
+    type: 'create' | 'update' = 'create'
+    // item = {
+    //     nombre: this.crudService.type === 'create' ? '' : this.product.nombre,
+    //     precio: this.crudService.type === 'create' ? '' : this.product.precio,
+    //     descripcion: this.crudService.type === 'create' ? '' : this.product.descripcion
+    // }
 
-    constructor(public crudService: CrudService) {
+    constructor(public crudService: CrudService, @Inject(MAT_DIALOG_DATA) public data: any) {
+        this.item = data.item;
+        this.type = data.type;
+
     }
 
     async handleSubmit() {
-        await this.crudService.createProduct('http://localhost:8000/productos/', this.item)
-        try {
-
-        } catch (errors) {
-            console.log(errors)
+        if (this.type === 'create') {
+            try {
+                await this.crudService.createProduct('http://localhost:8000/productos/', this.item)
+            } catch (errors) {
+                console.log(errors)
+            }
+        } else {
+            try {
+                await this.crudService.updateProduct('http://localhost:8000/productos', this.item.id, this.item)
+            } catch (errors) {
+                console.log(errors)
+            }
         }
+
     }
 }

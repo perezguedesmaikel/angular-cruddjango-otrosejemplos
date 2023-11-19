@@ -24,7 +24,7 @@
             <td>{{item.precio}}</td>
             <td>{{ item.descripcion }}</td>
             <td>
-                <dialog-content-example [type]="'update'"/>
+                <dialog-content-example [item]="item" [type]="'update'"/>
                 <button (click)="eliminar(item.id!)" color="warn" mat-icon-button>
                     <mat-icon>delete</mat-icon>
                 </button>

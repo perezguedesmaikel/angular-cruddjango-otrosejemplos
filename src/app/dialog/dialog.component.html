@@ -28,6 +28,7 @@
     </mat-dialog-content>
     <mat-dialog-actions align="end" class="bg-gradient-to-r from-blue-700 to-blue-500">
         <button mat-button mat-dialog-close>Cancel</button>
-        <button [mat-dialog-close]="true" cdkFocusInitial mat-button type="submit">Agregar</button>
+        <button [mat-dialog-close]="true" cdkFocusInitial mat-button
+                type="submit">{{type === 'create' ? 'Agregar' : 'Actualizar'}}</button>
     </mat-dialog-actions>
 </form>
