@@ -1,1 +1,37 @@
-<p>crud works!</p>
+<div class="flex py-5 pb-0">
+  <h3
+    class="text-3xl font-bold text-white bg-gradient-to-r from-blue-700 to-blue-500 py-2 px-4 rounded-r-[50px] shadow-lg">
+    Crud Angular Django!!!
+  </h3>
+</div>
+
+<div class="w-[100vw] p-5">
+  <button (click)="agregar()" class="mb-2" color="primary" mat-raised-button>Agregar</button>
+  <table class="table-auto  w-[97vw] border-collapse">
+    <thead>
+    <tr class="h-[50px] bg-blue-500 text-white">
+      <th class="text-center w-[5%] ">id</th>
+      <th class="text-start w-[10%]">Nombre</th>
+      <th class="text-start w-[10%]">Precio</th>
+      <th class="text-start w-[60%]">Descripción</th>
+      <th class="text-start w-[10%]">Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of items" class="hover:bg-[#f7fafc]">
+      <td class="text-center">id</td>
+      <td>{{ item.nombre }}</td>
+      <td>Precio</td>
+      <td>{{ item.descripcion }}</td>
+      <td>
+        <button (click)="editar(item)" color="primary" mat-icon-button>
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button (click)="eliminar(item)" color="warn" mat-icon-button>
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
