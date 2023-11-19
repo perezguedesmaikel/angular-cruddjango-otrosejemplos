@@ -17,46 +17,53 @@ import {MatMenuModule} from "@angular/material/menu";
 import {routes} from "./app-routing.module";
 import {HomeComponent} from "./home/home.component";
 import {RouterModule} from "@angular/router";
-import { HijoComponent } from './hijo/hijo.component';
-import { NietoComponent } from './hijo/nieto/nieto.component';
-import { ListatareasComponent } from './listatareas/listatareas.component';
-import { ListcardComponent } from './listcard/listcard.component';
-import { DetailsComponentComponent } from './details-component/details-component.component';
-import { CrudComponent } from './crud/crud.component';
+import {HijoComponent} from './hijo/hijo.component';
+import {NietoComponent} from './hijo/nieto/nieto.component';
+import {ListatareasComponent} from './listatareas/listatareas.component';
+import {ListcardComponent} from './listcard/listcard.component';
+import {DetailsComponentComponent} from './details-component/details-component.component';
+import {CrudComponent} from './crud/crud.component';
+import {DialogComponent, DialogContentExample} from './dialog/dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MyComponentComponent,
-    ContadorComponent,
-    FormularioreactivoComponent,
-    NavbarComponent,
-    HomeComponent,
-    HijoComponent,
-    NietoComponent,
-    ListatareasComponent,
-    ListcardComponent,
-    DetailsComponentComponent,
-    CrudComponent
-  ],
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatSlideToggleModule,
-    MatButtonModule,
-    FormsModule,
-    MatInputModule,
-    MatCardModule,
-    NgOptimizedImage,
-    MatIconModule,
-    MatMenuModule,
-    RouterModule.forRoot(routes),
-  ],
-  exports: [RouterModule],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        MyComponentComponent,
+        ContadorComponent,
+        FormularioreactivoComponent,
+        NavbarComponent,
+        HomeComponent,
+        HijoComponent,
+        NietoComponent,
+        ListatareasComponent,
+        ListcardComponent,
+        DetailsComponentComponent,
+        CrudComponent,
+
+
+    ],
+    imports: [
+        DialogComponent,
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatSlideToggleModule,
+        MatButtonModule,
+        FormsModule,
+        MatInputModule,
+        MatCardModule,
+        NgOptimizedImage,
+        MatIconModule,
+        MatMenuModule,
+        RouterModule.forRoot(routes),
+        MatDialogModule,
+        DialogContentExample,
+    ],
+    exports: [RouterModule, DialogComponent],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

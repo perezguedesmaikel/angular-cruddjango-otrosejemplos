@@ -1,0 +1,33 @@
+<h2 class="bg-gradient-to-r from-blue-700 to-blue-500 m-0" mat-dialog-title style="margin: 0">Agregar producto</h2>
+<form (submit)="handleSubmit()">
+    <mat-dialog-content class="mat-typography bg-white text-black " style="padding: 20px">
+        <div class="w-[50vh] mx-auto">
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="nombre">Nombre</label>
+                <input [(ngModel)]="item.nombre"
+                       class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                       id="nombre" name="nombre" required type="text">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="precio">Precio</label>
+                <input [(ngModel)]="item.precio"
+                       class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                       id="precio" name="precio" required type="number">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="descripcion">Descripción</label>
+                <textarea
+                        [(ngModel)]="item.descripcion"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="descripcion" name="descripcion" required rows="4"></textarea>
+            </div>
+
+        </div>
+
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end" class="bg-gradient-to-r from-blue-700 to-blue-500">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button [mat-dialog-close]="true" cdkFocusInitial mat-button type="submit">Agregar</button>
+    </mat-dialog-actions>
+</form>
