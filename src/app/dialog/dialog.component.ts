@@ -42,7 +42,11 @@ export class DialogContentExample {
     imports: [MatDialogModule, MatButtonModule, FormsModule]
 })
 export class DialogComponent {
-    item = {nombre: '', precio: 0, descripcion: ''}
+    item = {
+        nombre: this.crudService.type === 'create' ? '' : 'Maikel',
+        precio: this.crudService.type === 'create' ? '' : 100,
+        descripcion: this.crudService.type === 'create' ? '' : 'yeah baby!!!'
+    }
 
     constructor(public crudService: CrudService) {
     }
