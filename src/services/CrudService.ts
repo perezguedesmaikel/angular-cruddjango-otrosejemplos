@@ -48,4 +48,19 @@ export class CrudService {
         }
     }
 
+    async updateProduct(endPoint: string, productId: number, data: any) {
+        try {
+            const res = await axios.put(`${endPoint}/${productId}`, data);
+            if (res.status === 200) {
+                // Actualizar el producto en this.items
+                const updatedProductIndex = this.items.findIndex(item => item.id === productId);
+                if (updatedProductIndex !== -1) {
+                    this.items[updatedProductIndex] = res.data;
+                }
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
 }
