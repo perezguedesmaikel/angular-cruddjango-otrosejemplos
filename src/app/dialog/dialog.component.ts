@@ -37,9 +37,11 @@ export class DialogContentExample {
 export class DialogComponent {
     item = {nombre: '', precio: 0, descripcion: ''}
 
+    constructor(public crudService: CrudService) {
+    }
+
     async handleSubmit() {
-        const service = new CrudService('http://localhost:8000/')
-        await service.createProduct('productos/', this.item)
+        await this.crudService.createProduct('http://localhost:8000/productos/', this.item)
         try {
 
         } catch (errors) {

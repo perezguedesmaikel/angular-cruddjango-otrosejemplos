@@ -18,7 +18,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let item of items" class="hover:bg-[#f7fafc]">
+        <tr *ngFor="let item of crudService.items" class="hover:bg-[#f7fafc]">
             <td class="text-center">{{item.id || 'id'}}</td>
             <td>{{ item.nombre }}</td>
             <td>{{item.precio}}</td>
@@ -27,7 +27,7 @@
                 <button (click)="editar(item)" color="primary" mat-icon-button>
                     <mat-icon>edit</mat-icon>
                 </button>
-                <button (click)="eliminar(item)" color="warn" mat-icon-button>
+                <button (click)="eliminar(item.id!)" color="warn" mat-icon-button>
                     <mat-icon>delete</mat-icon>
                 </button>
             </td>

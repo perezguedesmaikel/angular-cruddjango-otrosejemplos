@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {CrudService} from "../../services/CrudService";
-import axios from "axios";
+import {fadeInItems} from "@angular/material/menu";
 
 interface Item {
     id?: number;
@@ -18,20 +18,14 @@ interface Item {
 
 export class CrudComponent {
     items: Item[] = [];
+    protected readonly parseInt = parseInt;
 
-    agregar() {
-        const newItem: Item = {
-            precio: 15,
-            nombre: 'Nuevo Item',
-            descripcion: 'Descripción del Nuevo Item'
-        };
-        this.items.push(newItem);
+    constructor(public crudService: CrudService) {
     }
 
     async ngOnInit(): Promise<void> {
-        const service = new CrudService('http://localhost:8000/')
         try {
-            this.items = await service.getProduct('productos')
+            await this.crudService.getProduct('http://localhost:8000/productos/')
         } catch (errors) {
             console.log(errors)
         }
@@ -41,10 +35,7 @@ export class CrudComponent {
         // Lógica para editar el item
     }
 
-    eliminar(item: Item) {
-        const index = this.items.indexOf(item);
-        if (index !== -1) {
-            this.items.splice(index, 1);
-        }
+    async eliminar(id: number) {
+        await this.crudService.deleteProduct('http://localhost:8000/productos/', id)
     }
 }
