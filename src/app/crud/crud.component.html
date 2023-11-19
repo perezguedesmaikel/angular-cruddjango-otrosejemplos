@@ -24,9 +24,7 @@
             <td>{{item.precio}}</td>
             <td>{{ item.descripcion }}</td>
             <td>
-                <button (click)="editar(item)" color="primary" mat-icon-button>
-                    <mat-icon>edit</mat-icon>
-                </button>
+                <dialog-content-example [type]="'update'"/>
                 <button (click)="eliminar(item.id!)" color="warn" mat-icon-button>
                     <mat-icon>delete</mat-icon>
                 </button>

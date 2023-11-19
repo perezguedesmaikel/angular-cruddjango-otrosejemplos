@@ -1,1 +1,4 @@
-<button (click)="openDialog()" class="mb-2" color="primary" mat-raised-button>Agregar</button>
+<button (click)="openDialog()" *ngIf="type==='create'" class="mb-2" color="primary" mat-raised-button>Agregar</button>
+<button (click)="openDialog()" *ngIf="type==='update'" color="primary" mat-icon-button>
+    <mat-icon>edit</mat-icon>
+</button>

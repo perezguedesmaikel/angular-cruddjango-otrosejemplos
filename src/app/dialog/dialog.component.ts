@@ -1,8 +1,10 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 import {FormsModule} from "@angular/forms";
 import {CrudService} from "../../services/CrudService";
+import {NgIf} from "@angular/common";
+import {MatIconModule} from "@angular/material/icon";
 
 
 /**
@@ -12,9 +14,11 @@ import {CrudService} from "../../services/CrudService";
     selector: 'dialog-content-example',
     templateUrl: 'dialog-content-example.html',
     standalone: true,
-    imports: [MatButtonModule, MatDialogModule],
+    imports: [MatButtonModule, MatDialogModule, NgIf, MatIconModule],
 })
 export class DialogContentExample {
+    @Input() type: 'create' | 'update' = 'create'
+
     constructor(public dialog: MatDialog) {
     }
 
@@ -25,6 +29,8 @@ export class DialogContentExample {
             console.log(`Dialog result: ${result}`);
         });
     }
+
+    // openOtherDialof()
 }
 
 @Component({

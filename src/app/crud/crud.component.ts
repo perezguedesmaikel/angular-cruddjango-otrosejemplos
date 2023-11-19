@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {CrudService} from "../../services/CrudService";
-import {fadeInItems} from "@angular/material/menu";
 
 interface Item {
     id?: number;
@@ -32,7 +31,7 @@ export class CrudComponent {
     }
 
     editar(item: Item) {
-        // Lógica para editar el item
+        alert('Update')
     }
 
     async eliminar(id: number) {
