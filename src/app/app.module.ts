@@ -21,6 +21,8 @@ import { HijoComponent } from './hijo/hijo.component';
 import { NietoComponent } from './hijo/nieto/nieto.component';
 import { ListatareasComponent } from './listatareas/listatareas.component';
 import { ListcardComponent } from './listcard/listcard.component';
+import { DetailsComponentComponent } from './details-component/details-component.component';
+import { CrudComponent } from './crud/crud.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { ListcardComponent } from './listcard/listcard.component';
     HijoComponent,
     NietoComponent,
     ListatareasComponent,
-    ListcardComponent
+    ListcardComponent,
+    DetailsComponentComponent,
+    CrudComponent
   ],
   imports: [
     FormsModule,
