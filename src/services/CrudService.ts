@@ -13,6 +13,7 @@ interface Item {
 })
 export class CrudService {
     items: Item[] = [];
+    type: 'create' | 'update' = 'create'
 
 
     async getProduct(endPoint: string) {

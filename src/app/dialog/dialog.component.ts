@@ -5,6 +5,7 @@ import {FormsModule} from "@angular/forms";
 import {CrudService} from "../../services/CrudService";
 import {NgIf} from "@angular/common";
 import {MatIconModule} from "@angular/material/icon";
+import {OtherDialogComponent} from "../other-dialog/other-dialog.component";
 
 
 /**
@@ -17,20 +18,20 @@ import {MatIconModule} from "@angular/material/icon";
     imports: [MatButtonModule, MatDialogModule, NgIf, MatIconModule],
 })
 export class DialogContentExample {
+
     @Input() type: 'create' | 'update' = 'create'
 
-    constructor(public dialog: MatDialog) {
+    constructor(public dialog: MatDialog, public crudService: CrudService) {
     }
 
     openDialog() {
+        this.crudService.type = this.type
         const dialogRef = this.dialog.open(DialogComponent);
-
         dialogRef.afterClosed().subscribe(result => {
             console.log(`Dialog result: ${result}`);
         });
     }
 
-    // openOtherDialof()
 }
 
 @Component({

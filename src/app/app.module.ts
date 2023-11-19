@@ -25,6 +25,7 @@ import {DetailsComponentComponent} from './details-component/details-component.c
 import {CrudComponent} from './crud/crud.component';
 import {DialogComponent, DialogContentExample} from './dialog/dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { OtherDialogComponent } from './other-dialog/other-dialog.component';
 
 @NgModule({
     declarations: [
@@ -40,6 +41,7 @@ import {MatDialogModule} from "@angular/material/dialog";
         ListcardComponent,
         DetailsComponentComponent,
         CrudComponent,
+        OtherDialogComponent,
 
 
     ],
