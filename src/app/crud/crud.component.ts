@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import {CrudService} from "../../services/CrudService";
+import axios from "axios";
 
 interface Item {
     id?: number;
@@ -15,11 +17,7 @@ interface Item {
 
 
 export class CrudComponent {
-    items: Item[] = [
-        {id: 1, nombre: 'Item 1', precio: 10.20, descripcion: 'Descripción del Item 1'},
-        {id: 2, nombre: 'Item 2', precio: 11.20, descripcion: 'Descripción del Item 2'},
-        {id: 3, nombre: 'Item 3', precio: 10.25, descripcion: 'Descripción del Item 3'}
-    ];
+    items: Item[] = [];
 
     agregar() {
         const newItem: Item = {
@@ -28,6 +26,15 @@ export class CrudComponent {
             descripcion: 'Descripción del Nuevo Item'
         };
         this.items.push(newItem);
+    }
+
+    async ngOnInit(): Promise<void> {
+        const service = new CrudService('http://localhost:8000/')
+        try {
+            this.items = await service.getProduct('productos')
+        } catch (errors) {
+            console.log(errors)
+        }
     }
 
     editar(item: Item) {
