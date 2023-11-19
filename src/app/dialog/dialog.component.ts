@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 import {FormsModule} from "@angular/forms";
+import {CrudService} from "../../services/CrudService";
 
 
 /**
@@ -36,7 +37,13 @@ export class DialogContentExample {
 export class DialogComponent {
     item = {nombre: '', precio: 0, descripcion: ''}
 
-    handleSubmit() {
-        // const service=new Crud
+    async handleSubmit() {
+        const service = new CrudService('http://localhost:8000/')
+        await service.createProduct('productos/', this.item)
+        try {
+
+        } catch (errors) {
+            console.log(errors)
+        }
     }
 }
